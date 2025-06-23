@@ -1,0 +1,235 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Personality Inventory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom CSS for responsive text and spacing */
+    .likert-label {
+      font-size: clamp(0.75rem, 2.5vw, 1rem); /* Stays at 1rem, shrinks to 0.75rem */
+      white-space: nowrap; /* Prevents wrapping */
+      text-align: center;
+    }
+    .likert-container {
+      gap: clamp(0.5rem, 2vw, 1.5rem); /* Scales spacing between buttons */
+    }
+    .question-fieldset {
+      margin-bottom: clamp(1rem, 3vw, 1.5rem); /* Scales vertical spacing between questions */
+      padding-bottom: clamp(1rem, 3vw, 1.5rem); /* Scales border padding */
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+  <form id="personalityForm" class="bg-white rounded-xl shadow-lg max-w-3xl w-full p-8 space-y-8" aria-label="Personality Inventory">
+    <h1 class="text-3xl font-extrabold text-indigo-700 text-center mb-6">Personality Inventory</h1>
+    <p class="text-center text-gray-600 text-lg mb-8">Please indicate how true each statement is for you.</p>
+
+    <!-- Questions 1 to 57 omitted for brevity -->
+
+    <!-- Question 58 -->
+    <fieldset class="question-fieldset border-b border-gray-200">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I get excited by all the chaos when I see a car crash.</legend>
+      <div class="flex justify-center likert-container">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">False, not at all true</span>
+          <input type="radio" name="q58" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Slightly true</span>
+          <input type="radio" name="q58" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Mainly true</span>
+          <input type="radio" name="q58" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Very true</span>
+          <input type="radio" name="q58" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 59 -->
+    <fieldset class="question-fieldset border-b border-gray-200">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I could very easily keep the conversation flowing in a hostage situation.</legend>
+      <div class="flex justify-center likert-container">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">False, not at all true</span>
+          <input type="radio" name="q59" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Slightly true</span>
+          <input type="radio" name="q59" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Mainly true</span>
+          <input type="radio" name="q59" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Very true</span>
+          <input type="radio" name="q59" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 60 -->
+    <fieldset class="question-fieldset border-b border-gray-200">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I often simulate various personalities that aren’t mine to keep my true self unseen.</legend>
+      <div class="flex justify-center likert-container">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">False, not at all true</span>
+          <input type="radio" name="q60" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Slightly true</span>
+          <input type="radio" name="q60" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Mainly true</span>
+          <input type="radio" name="q60" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Very true</span>
+          <input type="radio" name="q60" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 61 -->
+    <fieldset class="question-fieldset border-b border-gray-200">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’d easily play it off without any embarrassment if my phone suddenly blasted porn at full volume in front of my boss.</legend>
+      <div class="flex justify-center likert-container">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">False, not at all true</span>
+          <input type="radio" name="q61" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Slightly true</span>
+          <input type="radio" name="q61" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Mainly true</span>
+          <input type="radio" name="q61" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700 likert-label">Very true</span>
+          <input type="radio" name="q61" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Dropdowns for Gender, Age Group, and Region -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+      <select name="gender" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="Other">Other</option>
+      </select>
+      <select name="age_group" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Age Group</option>
+        <option value="Under 18">Under 18</option>
+        <option value="18-24">18-24</option>
+        <option value="25-34">25-34</option>
+        <option value="35-44">35-44</option>
+        <option value="45-54">45-54</option>
+        <option value="55+">55+</option>
+      </select>
+      <select name="region" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Region</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Western Europe">Western Europe</option>
+        <option value="Eastern Europe">Eastern Europe</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Russia">Russia</option>
+        <option value="East Asia">East Asia</option>
+        <option value="South Asia">South Asia</option>
+        <option value="Southeast Asia">Southeast Asia</option>
+        <option value="Middle East">Middle East</option>
+        <option value="Africa">Africa</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex justify-center mt-8">
+      <button type="submit" class="w-full max-w-xs py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('personalityForm').addEventListener('submit', function(event) {
+      if (!this.checkValidity()) {
+        if (window.innerWidth < 768) {
+          const firstInvalid = this.querySelector(':invalid');
+          if (firstInvalid) {
+            if (firstInvalid.type === 'radio') {
+              const fieldset = firstInvalid.closest('fieldset');
+              if (fieldset) {
+                fieldset.scrollIntoView({ behavior: 'smooth' });
+              }
+            } else {
+              firstInvalid.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+        // Browser handles validation messages
+      } else {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const responses = {};
+        for (const [key, value] of formData.entries()) {
+          responses[key] = value;
+        }
+        console.log('Form Responses:', responses);
+        alert('Responses logged to console. Check developer tools for details.');
+      }
+    });
+  </script>
+</body>
+</html>

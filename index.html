@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personality Inventory</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Custom CSS to keep text size consistent but shrink to avoid wrapping */
+    .likert-label {
+      font-size: clamp(0.75rem, 2.5vw, 0.875rem); /* Stays at 0.875rem unless shrinking is needed */
+      white-space: nowrap; /* Prevents wrapping */
+      text-align: center; /* Keeps text centered */
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+  <form id="personalityForm" class="bg-white rounded-xl shadow-lg max-w-3xl w-full p-8 space-y-8" aria-label="Personality Inventory">
+    <h1 class="text-3xl font-extrabold text-indigo-700 text-center mb-6">Personality Inventory</h1>
+    <p class="text-center text-gray-600 text-lg mb-8">Please indicate how true each statement is for you.</p>
+
+    <!-- Question 1 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I always find it physically painful to bring myself to start doing chores.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q1" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q1" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q1" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q1" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 2 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It might be fun to play tennis with golf balls for added danger and excitement.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q2" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q2" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q2" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q2" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 3 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">Nothing bad ever happens.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q3" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q3" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q3" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q3" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 4 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I usually feel sad when one of my friends is going through a hard time.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q4" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q4" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q4" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q4" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 5 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">If I moved overseas, I probably wouldn’t miss the people back home that much.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q5" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q5" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q5" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q5" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 6 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I'd be tempted to whisper a funny joke I thought of during a moment of silence for someone who died.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q6" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q6" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q6" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q6" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 7 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can make impromptu speeches even on topics about which I have almost no information.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q7" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q7" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q7" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q7" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 8 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I don’t see why being in a relationship means I shouldn’t be able to sleep around occasionally.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q8" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q8" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q8" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q8" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 9 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">When friends tell me “that’s something you would do!”, it makes me think they don’t know me at all.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q9" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q9" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q9" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q9" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 10 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I could trick a doctor into giving me almost any mental health diagnosis that I wanted.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q10" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q10" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q10" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q10" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 11 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’ve often gotten a kick out of shocking strangers with offensive behaviour.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q11" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q11" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q11" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q11" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 12 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can shift my inner sense of self at will, like a chameleon.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q12" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q12" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q12" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q12" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 13 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">Even if it doesn't achieve anything, I couldn’t help but panic if I saw my friend get kidnapped.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q13" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q13" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q13" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q13" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 14 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">If I could download a car, I would. And I wouldn’t feel any empathy about it.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q14" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q14" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q14" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q14" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 15 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">Most people are idiots.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q15" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q15" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q15" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q15" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 16 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I could not keep practicing my pen spins while the patient in the next room flatlines.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q16" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q16" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q16" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q16" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 17 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I might find it exciting to have military police in a foreign country take me to an interrogation room.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q17" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q17" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q17" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q17" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 18 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">More excitement is never enough. I only turn it up to 11 because I can’t turn it up to 12.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q18" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q18" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q18" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q18" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 19 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’d feel awkward if I had an orgy with my peers.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q19" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q19" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q19" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q19" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 20 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">When something or someone gets in my way it’s almost impossible not to lose my shit.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q20" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q20" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q20" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q20" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 21 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It’s pretty easy to feel great about myself, no matter what I do.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q21" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q21" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q21" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q21" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 22 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I feel all sorts of emotions.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q22" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q22" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q22" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q22" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 23 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I've sometimes been in situations where I had to do more work than others.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q23" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q23" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q23" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q23" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 24 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can change who I am as a person into whichever person I want to be in the moment.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q24" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q24" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q24" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q24" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 25 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I tell lies more convincingly than most others tell the truth.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q25" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q25" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q25" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q25" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 26 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I find it so hard to pull my weight that others usually end up having to pick up my slack.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q26" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q26" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q26" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q26" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 27 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can recall moments in my life where I felt horrible about myself.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q27" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q27" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q27" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q27" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 28 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can’t effortlessly change my entire personality on the fly to influence others or manipulate perceptions of me.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q28" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q28" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q28" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q28" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 29 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’ll often drop technical jargon in conversation to control how I’m perceived.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q29" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q29" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q29" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q29" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 30 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I wouldn’t blink at flirting with a hottie I just met at a funeral.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q30" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q30" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q30" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q30" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 31 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I would consider taking a pay cut so the CEO could get a bigger Christmas bonus.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q31" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q31" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q31" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q31" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 32 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I can effortlessly adopt any persona needed to get what I want.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q32" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q32" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q32" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q32" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 33 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It would bother me if I knew there was a dead body decomposing behind the walls of my bedroom.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q33" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q33" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q33" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q33" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 34 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I live life on the “knife’s edge”, like you can never take anything too far.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q34" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q34" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q34" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q34" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 35 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I might enjoy taking charge during a school shooting.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q35" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q35" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q35" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q35" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 36 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I find it funny watching videos of people getting hit by a car and sent flying like a ragdoll.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q36" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q36" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q36" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q36" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 37 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I comfortably method act in real life to change others' perceptions so I can get the outcome I'm after.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q37" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q37" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q37" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q37" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 38 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’d rather be homeless than have to live in a modestly-sized house.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q38" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q38" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q38" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q38" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 39 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I think walking past airport police with a few drugs in my pocket might be a real thrill.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q39" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q39" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q39" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q39" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 40 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I know how to make a great first impression on someone dying of cancer.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q40" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q40" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q40" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q40" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 41 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’ve smashed my own belongings because the fucking thing wasn’t working as it should.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q41" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q41" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q41" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q41" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 42 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’d laugh if someone referred to my grandfather’s wake as the after-party.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q42" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q42" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q42" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q42" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 43 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I would not play tennis with golf balls.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q43" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q43" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q43" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q43" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 44 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I don't see the harm in sleeping around if my partner never finds out.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q44" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q44" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q44" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q44" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 45 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It makes me happy when I see two random people brawling in the street.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q45" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q45" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q45" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q45" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 46 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">If I ever met them, I could win over Vladimir Putin or Jeffrey Epstein right off the bat.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q46" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q46" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q46" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q46" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 47 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">Lies are just sounds a person makes with their mouth.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q47" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q47" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q47" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q47" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 48 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I find it so hard not to fly off the handle with my hair trigger temper.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q48" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q48" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q48" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q48" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 49 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I become focused and calm when a situation threatens the lives of myself and others around me.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q49" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q49" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q49" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q49" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 50 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It blows my mind that anyone would commit to having sex with only one person for the rest of their life.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q50" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q50" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q50" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q50" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 51 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I sometimes try to pay more for my grocery items than what the price is.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q51" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q51" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q51" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q51" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 52 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">If I had plans to go out partying, but my partner became seriously hospitalised, I’d be out partying after visiting hours had ended.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q52" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q52" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q52" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q52" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 53 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">People who’ve known me for years often say things about me that make me think no one knows who I really am.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q53" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q53" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q53" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q53" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 54 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">When introduced to others, I can have them perceive me any way I choose.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q54" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q54" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q54" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q54" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 55 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">If I had the occasional “cheat day”, it wouldn’t mean I don’t love my partner.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q55" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q55" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q55" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q55" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 56 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">It’s easier to hide my “misconduct” than to expect others to understand why it’s actually justified.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q56" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q56" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q56" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q56" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 57 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’ve enjoyed watching funny online videos of people getting killed.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q57" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q57" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q57" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q57" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 58 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I get excited by all the chaos when I see a car crash.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q58" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q58" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q58" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q58" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 59 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I could very easily keep the conversation flowing in a hostage situation.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q59" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q59" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q59" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q59" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 60 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I often simulate various personalities that aren’t mine to keep my true self unseen.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q60" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q60" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q60" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q60" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Question 61 -->
+    <fieldset class="space-y-6 border-b border-gray-200 pb-8">
+      <legend class="text-gray-800 font-semibold text-lg text-center max-w-[90%] mx-auto">I’d easily play it off without any embarrassment if my phone suddenly blasted porn at full volume in front of my boss.</legend>
+      <div class="flex justify-center space-x-8">
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">False, not at all true</span>
+          <input type="radio" name="q61" value="0" required class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Slightly true</span>
+          <input type="radio" name="q61" value="1" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Mainly true</span>
+          <input type="radio" name="q61" value="2" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+        <label class="flex flex-col items-center cursor-pointer select-none">
+          <span class="mb-2 font-semibold text-gray-700">Very true</span>
+          <input type="radio" name="q61" value="3" class="w-6 h-6 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded-full">
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- Dropdowns for Gender, Age Group, and Region -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+      <select name="gender" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Non-binary">Non-binary</option>
+        <option value="Other">Other</option>
+      </select>
+      <select name="age_group" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Age Group</option>
+        <option value="Under 18">Under 18</option>
+        <option value="18-24">18-24</option>
+        <option value="25-34">25-34</option>
+        <option value="35-44">35-44</option>
+        <option value="45-54">45-54</option>
+        <option value="55+">55+</option>
+      </select>
+      <select name="region" required class="w-full py-3 px-4 bg-white border border-gray-300 rounded-lg shadow-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all">
+        <option value="" disabled selected>Select Region</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Western Europe">Western Europe</option>
+        <option value="Eastern Europe">Eastern Europe</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Russia">Russia</option>
+        <option value="East Asia">East Asia</option>
+        <option value="South Asia">South Asia</option>
+        <option value="Southeast Asia">Southeast Asia</option>
+        <option value="Middle East">Middle East</option>
+        <option value="Africa">Africa</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex justify-center mt-8">
+      <button type="submit" class="w-full max-w-xs py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('personalityForm').addEventListener('submit', function(event) {
+      if (!this.checkValidity()) {
+        if (window.innerWidth < 768) {
+          const firstInvalid = this.querySelector(':invalid');
+          if (firstInvalid) {
+            if (firstInvalid.type === 'radio') {
+              const fieldset = firstInvalid.closest('fieldset');
+              if (fieldset) {
+                fieldset.scrollIntoView({ behavior: 'smooth' });
+              }
+            } else {
+              firstInvalid.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+        // Browser handles validation messages
+      } else {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const responses = {};
+        for (const [key, value] of formData.entries()) {
+          responses[key] = value;
+        }
+        console.log('Form Responses:', responses);
+        alert('Thank you for participating! Your answers will help with the psychometric validation of this assessment. As it is currently not validated, there are no results to present.');
+      }
+    });
+  </script>
+</body>
+</html>
